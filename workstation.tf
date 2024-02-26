@@ -10,6 +10,7 @@ module "ec2_instance" {
   vpc_security_group_ids              = [aws_security_group.allow_eksctl.id]
   subnet_id                           = "subnet-07eceea08298f25d3" # replace your default subnet id
   user_data                           = file("workstation.sh")
+  iam_instance_profile                = "role-for-workstation"
 
   tags = {
     Name        = "workstation-eksctl"
